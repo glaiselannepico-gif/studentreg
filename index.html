@@ -9,7 +9,7 @@
 <style>
 
 /* =========================
-   GENERAL
+   RESET
 ========================= */
 
 *{
@@ -19,29 +19,156 @@
 body{
     margin:0;
     font-family:Arial, Helvetica, sans-serif;
-    background:#f5eee4;
-    color:#514b42;
+    background:#f4f1ec;
+    color:#34312d;
 }
+
+
+/* =========================
+   MAIN
+========================= */
 
 .container{
-    width:82%;
-    max-width:1050px;
-    margin:55px auto;
-    background:#fffdf9;
-    padding:28px 30px;
-    border-radius:12px;
-    box-shadow:0 6px 25px rgba(0,0,0,.07);
+    width:90%;
+    max-width:1150px;
+    margin:45px auto;
 }
 
-h1{
-    margin:0 0 18px;
+
+/* =========================
+   HERO HEADER
+========================= */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(135deg,#29251f,#4b4033);
+    border-radius:18px;
+    padding:34px 38px;
+    color:white;
+    margin-bottom:18px;
+    box-shadow:0 12px 30px rgba(45,37,29,.12);
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:rgba(190,157,112,.12);
+    right:-70px;
+    top:-100px;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    background:rgba(255,255,255,.04);
+    right:120px;
+    bottom:-80px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.hero-label{
+    display:inline-block;
+    font-size:10px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:#cdb795;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.hero h1{
+    margin:0;
+    font-size:30px;
+    font-weight:700;
+    letter-spacing:-.8px;
+}
+
+.hero p{
+    margin:9px 0 0;
+    color:#d7d0c6;
+    font-size:12px;
+    line-height:1.6;
+}
+
+
+/* =========================
+   STATISTICS
+========================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+    margin-bottom:18px;
+}
+
+.stat-card{
+    position:relative;
+    background:#fff;
+    border:1px solid #e6dfd6;
+    border-radius:13px;
+    padding:20px 21px;
+    overflow:hidden;
+    transition:.2s;
+}
+
+.stat-card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 22px rgba(54,45,35,.06);
+}
+
+.stat-card::after{
+    content:"";
+    position:absolute;
+    right:-25px;
+    bottom:-35px;
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    background:#f1ebe2;
+}
+
+.stat-label{
+    position:relative;
+    z-index:2;
+    display:block;
+    color:#958d83;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:.7px;
+    margin-bottom:7px;
+}
+
+.stat-number{
+    position:relative;
+    z-index:2;
     font-size:25px;
-    color:#49443c;
+    font-weight:700;
+    color:#38332d;
 }
 
-h2{
-    font-size:18px;
-    margin:22px 0 15px;
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.main-card{
+    background:#fff;
+    border:1px solid #e6dfd6;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 8px 28px rgba(54,45,35,.05);
 }
 
 
@@ -52,36 +179,43 @@ h2{
 .tabs{
     display:flex;
     gap:4px;
-    border-bottom:1px solid #e8dfd3;
-    margin-bottom:22px;
+    padding:7px 9px 0;
+    border-bottom:1px solid #e7e0d8;
+    background:#fcfbf9;
 }
 
 .tab{
     border:0;
     background:transparent;
-    color:#777064;
-    padding:11px 17px;
+    color:#948c82;
+    padding:13px 20px;
+    font-size:11px;
+    font-weight:600;
     cursor:pointer;
-    font-size:12px;
+    border-radius:7px 7px 0 0;
+    border-bottom:2px solid transparent;
+    transition:.2s;
 }
 
 .tab:hover{
-    color:#8e7558;
+    color:#5d5143;
+    background:#f5f1eb;
 }
 
 .tab.active{
-    background:#a98c6a;
-    color:white;
-    border-radius:5px 5px 0 0;
+    color:#fff;
+    background:#9a7b58;
+    border-bottom-color:#9a7b58;
 }
 
 
 /* =========================
-   SECTIONS
+   SECTION
 ========================= */
 
 .section{
     display:none;
+    padding:29px;
 }
 
 .section.active{
@@ -90,52 +224,86 @@ h2{
 
 
 /* =========================
+   FORM HEADER
+========================= */
+
+.form-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    margin-bottom:20px;
+}
+
+.form-header h2{
+    margin:0 0 5px;
+    font-size:18px;
+    color:#39352f;
+}
+
+.form-header p{
+    margin:0;
+    color:#9a938b;
+    font-size:11px;
+}
+
+
+/* =========================
    FORM
 ========================= */
 
-.form{
-    width:48%;
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 145px;
+    gap:12px;
+    align-items:end;
 }
 
-label{
+.field label{
     display:block;
-    font-size:12px;
+    font-size:10px;
     font-weight:bold;
-    margin:14px 0 6px;
-    color:#5b554c;
+    color:#655e55;
+    margin-bottom:6px;
 }
 
 input{
     width:100%;
-    padding:11px 12px;
-    border:1px solid #e4dbce;
-    border-radius:6px;
-    background:#fffdfa;
-    color:#514b42;
+    height:40px;
+    padding:0 12px;
+    border:1px solid #ddd6cd;
+    border-radius:7px;
+    background:#fff;
     outline:none;
-    font-size:13px;
+    color:#4c4740;
+    font-size:11px;
+    transition:.2s;
+}
+
+input::placeholder{
+    color:#b6b0a8;
 }
 
 input:focus{
-    border-color:#a98c6a;
-    box-shadow:0 0 0 2px rgba(169,140,106,.10);
+    border-color:#9a7b58;
+    box-shadow:0 0 0 3px rgba(154,123,88,.08);
 }
 
 .add-btn{
     width:100%;
-    margin-top:16px;
-    padding:11px;
+    height:40px;
     border:0;
-    border-radius:6px;
-    background:#a98c6a;
-    color:white;
-    font-size:12px;
+    border-radius:7px;
+    background:#9a7b58;
+    color:#fff;
+    font-size:11px;
     font-weight:bold;
     cursor:pointer;
+    transition:.2s;
 }
 
 .add-btn:hover{
-    background:#927653;
+    background:#806345;
+    transform:translateY(-1px);
 }
 
 
@@ -145,13 +313,13 @@ input:focus{
 
 .message{
     display:none;
-    width:48%;
-    padding:11px 13px;
-    margin-bottom:12px;
-    border-radius:6px;
-    background:#e5f1e7;
-    color:#63806a;
-    font-size:12px;
+    padding:10px 13px;
+    margin-bottom:15px;
+    border-radius:7px;
+    font-size:11px;
+    border:1px solid #d7e5d9;
+    background:#edf5ee;
+    color:#627b67;
 }
 
 
@@ -161,21 +329,29 @@ input:focus{
 
 .table-title{
     display:flex;
-    align-items:center;
     justify-content:space-between;
-    margin-top:32px;
+    align-items:center;
+    margin-top:31px;
+    margin-bottom:13px;
 }
 
 .table-title h2{
-    margin:0 0 14px;
+    margin:0 0 4px;
+    font-size:17px;
+    color:#3e3933;
+}
+
+.table-subtitle{
+    color:#a09a92;
+    font-size:10px;
 }
 
 .count{
-    background:#eee6da;
-    color:#766958;
+    background:#f1ece5;
+    color:#786b5d;
     padding:6px 11px;
     border-radius:20px;
-    font-size:11px;
+    font-size:10px;
     font-weight:bold;
 }
 
@@ -187,93 +363,127 @@ input:focus{
 .table-wrapper{
     width:100%;
     overflow-x:auto;
+    border:1px solid #e6dfd6;
+    border-radius:9px;
 }
 
 table{
     width:100%;
-    border-collapse:separate;
-    border-spacing:0;
-    border:1px solid #e8dfd3;
-    border-radius:8px;
-    overflow:hidden;
-    font-size:12px;
-}
-
-th{
-    background:#eee6da;
-    color:#5c554b;
-    text-align:left;
-    padding:12px 10px;
+    min-width:760px;
+    border-collapse:collapse;
     font-size:11px;
 }
 
-td{
-    padding:12px 10px;
-    border-top:1px solid #eee7de;
-    color:#6c675e;
-    vertical-align:middle;
+th{
+    padding:12px;
+    background:#f7f4f0;
+    color:#70675d;
+    text-align:left;
+    font-size:9px;
+    text-transform:uppercase;
+    letter-spacing:.5px;
 }
 
-tbody tr:hover td{
-    background:#fcfaf6;
+td{
+    padding:13px 12px;
+    border-top:1px solid #eee9e3;
+    color:#69635b;
+}
+
+tbody tr{
+    transition:.15s;
+}
+
+tbody tr:hover{
+    background:#fcfbf9;
 }
 
 
 /* =========================
-   ACTION BUTTONS
+   STUDENT ID
+========================= */
+
+.id-badge{
+    display:inline-block;
+    background:#f2ede6;
+    color:#79664f;
+    padding:5px 8px;
+    border-radius:5px;
+    font-size:9px;
+    font-weight:bold;
+}
+
+
+/* =========================
+   NAME
+========================= */
+
+.student-name{
+    color:#4b463f;
+    font-weight:bold;
+}
+
+
+/* =========================
+   PROGRAM
+========================= */
+
+.program{
+    max-width:300px;
+    line-height:1.5;
+}
+
+
+/* =========================
+   ACTIONS
 ========================= */
 
 .actions{
     display:flex;
-    align-items:center;
     gap:6px;
-    white-space:nowrap;
 }
 
 .action-btn{
-    border:none;
+    border:0;
     border-radius:5px;
-    padding:7px 12px;
-    font-size:11px;
+    padding:7px 11px;
+    font-size:9px;
     font-weight:bold;
     cursor:pointer;
     transition:.2s;
 }
 
 .edit-btn{
-    background:#a98c6a;
+    background:#9a7b58;
     color:white;
 }
 
 .edit-btn:hover{
-    background:#8f7355;
-    transform:translateY(-1px);
+    background:#806345;
 }
 
-.delete-btn{
-    background:#f1e7da;
-    color:#856b50;
+.archive-btn{
+    background:#f1ebe3;
+    color:#806b53;
 }
 
-.delete-btn:hover{
-    background:#e7d6c2;
-    color:#704f31;
-    transform:translateY(-1px);
+.archive-btn:hover{
+    background:#e5dbce;
 }
 
 .restore-btn{
-    background:#a98c6a;
-    color:white;
-    border:none;
+    border:0;
     border-radius:5px;
-    padding:7px 12px;
-    font-size:11px;
+    padding:7px 11px;
+    background:#9a7b58;
+    color:white;
+    font-size:9px;
     font-weight:bold;
     cursor:pointer;
 }
 
 .restore-btn:hover{
-    background:#8f7355;
+    background:#806345;
 }
 
 
@@ -283,11 +493,12 @@ tbody tr:hover td{
 
 .status{
     display:inline-block;
-    background:#eee8dd;
-    color:#776e61;
-    padding:5px 10px;
-    border-radius:15px;
-    font-size:10px;
+    padding:5px 9px;
+    border-radius:20px;
+    background:#f0ece6;
+    color:#766c61;
+    font-size:9px;
+    font-weight:bold;
 }
 
 
@@ -297,8 +508,9 @@ tbody tr:hover td{
 
 .empty{
     text-align:center;
-    color:#999;
-    padding:25px;
+    padding:35px !important;
+    color:#aaa49c;
+    font-size:11px;
 }
 
 
@@ -310,7 +522,8 @@ tbody tr:hover td{
     display:none;
     position:fixed;
     inset:0;
-    background:rgba(55,48,40,.40);
+    background:rgba(37,32,27,.42);
+    backdrop-filter:blur(3px);
     z-index:999;
     align-items:center;
     justify-content:center;
@@ -322,20 +535,22 @@ tbody tr:hover td{
 }
 
 .modal{
-    width:430px;
+    width:420px;
     max-width:100%;
-    background:#fffdf9;
+    background:#fff;
+    border:1px solid #e3ddd5;
     border-radius:12px;
-    padding:26px;
-    box-shadow:0 15px 40px rgba(0,0,0,.18);
+    padding:25px;
+    box-shadow:0 20px 50px rgba(0,0,0,.16);
     animation:modalIn .2s ease;
 }
 
 @keyframes modalIn{
     from{
         opacity:0;
-        transform:translateY(-10px);
+        transform:translateY(-8px);
     }
+
     to{
         opacity:1;
         transform:translateY(0);
@@ -343,100 +558,89 @@ tbody tr:hover td{
 }
 
 .modal h3{
-    margin:0 0 6px;
-    font-size:19px;
-    color:#4c473f;
+    margin:0 0 5px;
+    font-size:18px;
+    color:#3f3a34;
 }
 
 .modal-subtitle{
     margin:0 0 20px;
-    font-size:12px;
-    color:#999;
+    font-size:11px;
+    color:#9c958d;
+}
+
+.modal label{
+    display:block;
+    margin:13px 0 6px;
+    font-size:10px;
+    font-weight:bold;
+    color:#665f56;
 }
 
 .modal-buttons{
     display:flex;
     justify-content:flex-end;
-    gap:8px;
+    gap:7px;
     margin-top:22px;
 }
 
 .cancel-btn{
-    border:1px solid #ddd1c2;
+    border:1px solid #ddd6cd;
     background:#fff;
-    color:#766b5e;
+    color:#716960;
     border-radius:6px;
-    padding:9px 15px;
-    font-size:12px;
+    padding:8px 14px;
+    font-size:10px;
     cursor:pointer;
 }
 
 .cancel-btn:hover{
-    background:#f7f1e9;
+    background:#f7f4f0;
 }
 
-.save-btn{
+.save-btn,
+.archive-confirm{
     border:0;
-    background:#a98c6a;
+    background:#9a7b58;
     color:white;
     border-radius:6px;
-    padding:9px 17px;
-    font-size:12px;
+    padding:8px 15px;
+    font-size:10px;
     font-weight:bold;
     cursor:pointer;
 }
 
-.save-btn:hover{
-    background:#8f7355;
+.save-btn:hover,
+.archive-confirm:hover{
+    background:#806345;
 }
 
 
 /* =========================
-   DELETE MODAL
+   ARCHIVE MODAL
 ========================= */
 
-.delete-modal{
+.archive-modal{
     width:390px;
     text-align:center;
 }
 
-.warning-icon{
-    width:48px;
-    height:48px;
-    margin:0 auto 14px;
-    border-radius:50%;
-    background:#f1e7da;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#9a7650;
-    font-size:22px;
-    font-weight:bold;
+.archive-mark{
+    width:38px;
+    height:3px;
+    background:#9a7b58;
+    margin:0 auto 17px;
+    border-radius:5px;
 }
 
-.delete-modal h3{
-    margin-bottom:8px;
+.archive-text{
+    color:#8f8981;
+    font-size:11px;
+    line-height:1.7;
 }
 
-.delete-text{
-    color:#888;
-    font-size:12px;
-    line-height:1.6;
-}
-
-.delete-confirm{
-    border:0;
-    background:#a98c6a;
-    color:white;
-    border-radius:6px;
-    padding:9px 17px;
-    font-size:12px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.delete-confirm:hover{
-    background:#8f7355;
+.archive-text strong{
+    color:#514a42;
 }
 
 
@@ -444,25 +648,56 @@ tbody tr:hover td{
    RESPONSIVE
 ========================= */
 
-@media(max-width:750px){
+@media(max-width:900px){
+
+    .form-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .form-grid > div:last-child{
+        grid-column:span 2;
+    }
+
+}
+
+@media(max-width:650px){
 
     .container{
         width:94%;
+        margin:22px auto;
+    }
+
+    .hero{
+        padding:27px 24px;
+        border-radius:14px;
+    }
+
+    .hero h1{
+        font-size:24px;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .section{
         padding:20px;
-        margin:25px auto;
     }
 
-    .form,
-    .message{
-        width:100%;
+    .form-grid{
+        grid-template-columns:1fr;
     }
 
-    table{
-        min-width:700px;
+    .form-grid > div:last-child{
+        grid-column:auto;
     }
 
-    .table-wrapper{
+    .tabs{
         overflow-x:auto;
+    }
+
+    .tab{
+        white-space:nowrap;
     }
 
 }
@@ -473,182 +708,345 @@ tbody tr:hover td{
 
 <body>
 
-
 <div class="container">
 
-    <h1>Student Record System</h1>
+
+    <!-- HEADER -->
+
+    <div class="hero">
+
+        <div class="hero-content">
 
 
-    <!-- TABS -->
+            <h1>
+                Student Record System
+            </h1>
 
-    <div class="tabs">
+            <p>
+                A simple and organized way to manage
+                student records and archived information.
+            </p>
 
-        <button
-            class="tab active"
-            onclick="showTab('students',this)">
-            Student List
-        </button>
-
-        <button
-            class="tab"
-            onclick="showTab('deleted',this)">
-            Deleted
-        </button>
+        </div>
 
     </div>
 
 
-    <!-- =========================
-         STUDENT LIST
-    ========================== -->
+    <!-- STATISTICS -->
 
-    <div id="students" class="section active">
+    <div class="stats">
 
-        <h2>Add New Student</h2>
+        <div class="stat-card">
 
+            <span class="stat-label">
+                Active Students
+            </span>
 
-        <div id="message" class="message"></div>
+            <strong
+                class="stat-number"
+                id="activeStat">
+                0
+            </strong>
 
-
-        <div class="form">
-
-            <label>Student ID</label>
-
-            <input
-                type="text"
-                id="studentID"
-                placeholder="Enter student ID">
+        </div>
 
 
-            <label>Full Name</label>
+        <div class="stat-card">
 
-            <input
-                type="text"
-                id="studentName"
-                placeholder="Enter full name">
+            <span class="stat-label">
+                Archived Students
+            </span>
+
+            <strong
+                class="stat-number"
+                id="archivedStat">
+                0
+            </strong>
+
+        </div>
 
 
-            <label>Program</label>
+        <div class="stat-card">
 
-            <input
-                type="text"
-                id="studentProgram"
-                placeholder="Enter program">
+            <span class="stat-label">
+                Total Records
+            </span>
+
+            <strong
+                class="stat-number"
+                id="totalStat">
+                0
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- MAIN CARD -->
+
+    <div class="main-card">
+
+
+        <!-- TABS -->
+
+        <div class="tabs">
+
+            <button
+                class="tab active"
+                onclick="showTab('students',this)">
+
+                Student List
+
+            </button>
 
 
             <button
-                class="add-btn"
-                onclick="addStudent()">
+                class="tab"
+                onclick="showTab('archived',this)">
 
-                Add Student
+                Archived
 
             </button>
 
         </div>
 
 
-        <!-- STUDENT RECORDS -->
+        <!-- STUDENT SECTION -->
 
-        <div class="table-title">
+        <div
+            id="students"
+            class="section active">
 
-            <h2>Student Records</h2>
 
-            <span
-                class="count"
-                id="studentCount">
+            <div class="form-header">
 
-                0 Students
+                <div>
 
-            </span>
+                    <h2>
+                        Add New Student
+                    </h2>
+
+                    <p>
+                        Enter the student's information below.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="message"
+                class="message">
+            </div>
+
+
+            <div class="form-grid">
+
+
+                <div class="field">
+
+                    <label>
+                        Student ID
+                    </label>
+
+                    <input
+                        type="text"
+                        id="studentID"
+                        placeholder="Enter student ID">
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="studentName"
+                        placeholder="Enter full name">
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        Program
+                    </label>
+
+                    <input
+                        type="text"
+                        id="studentProgram"
+                        placeholder="Enter program">
+
+                </div>
+
+
+                <div>
+
+                    <button
+                        class="add-btn"
+                        onclick="addStudent()">
+
+                        Add Student
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- TABLE TITLE -->
+
+            <div class="table-title">
+
+                <div>
+
+                    <h2>
+                        Student Records
+                    </h2>
+
+                    <div class="table-subtitle">
+                        Currently active student records
+                    </div>
+
+                </div>
+
+
+                <span
+                    class="count"
+                    id="studentCount">
+
+                    0 Students
+
+                </span>
+
+            </div>
+
+
+            <!-- TABLE -->
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Student ID
+                            </th>
+
+                            <th>
+                                Name
+                            </th>
+
+                            <th>
+                                Program
+                            </th>
+
+                            <th>
+                                Created At
+                            </th>
+
+                            <th>
+                                Actions
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="studentTable">
+                    </tbody>
+
+                </table>
+
+            </div>
 
         </div>
 
 
-        <div class="table-wrapper">
+        <!-- ARCHIVED SECTION -->
 
-            <table>
-
-                <thead>
-
-                    <tr>
-
-                        <th>Student ID</th>
-
-                        <th>Name</th>
-
-                        <th>Program</th>
-
-                        <th>Created At</th>
-
-                        <th>Actions</th>
-
-                    </tr>
-
-                </thead>
+        <div
+            id="archived"
+            class="section">
 
 
-                <tbody id="studentTable"></tbody>
+            <div class="table-title">
 
-            </table>
+                <div>
 
-        </div>
+                    <h2>
+                        Archived Students
+                    </h2>
 
-    </div>
+                    <div class="table-subtitle">
+                        Records that have been archived
+                    </div>
 
-
-
-    <!-- =========================
-         DELETED STUDENTS
-    ========================== -->
-
-    <div id="deleted" class="section">
-
-        <div class="table-title">
-
-            <h2>Deleted Students</h2>
-
-            <span
-                class="count"
-                id="deletedCount">
-
-                0 Deleted
-
-            </span>
-
-        </div>
+                </div>
 
 
-        <p style="font-size:12px;color:#999;">
-            Archived student records
-        </p>
+                <span
+                    class="count"
+                    id="archivedCount">
+
+                    0 Archived
+
+                </span>
+
+            </div>
 
 
-        <div class="table-wrapper">
+            <div class="table-wrapper">
 
-            <table>
+                <table>
 
-                <thead>
+                    <thead>
 
-                    <tr>
+                        <tr>
 
-                        <th>Student ID</th>
+                            <th>
+                                Student ID
+                            </th>
 
-                        <th>Name</th>
+                            <th>
+                                Name
+                            </th>
 
-                        <th>Program</th>
+                            <th>
+                                Program
+                            </th>
 
-                        <th>Status</th>
+                            <th>
+                                Status
+                            </th>
 
-                        <th>Action</th>
+                            <th>
+                                Action
+                            </th>
 
-                    </tr>
+                        </tr>
 
-                </thead>
+                    </thead>
 
 
-                <tbody id="deletedTable"></tbody>
+                    <tbody id="archivedTable">
+                    </tbody>
 
-            </table>
+                </table>
+
+            </div>
 
         </div>
 
@@ -657,10 +1055,7 @@ tbody tr:hover td{
 </div>
 
 
-
-<!-- =========================
-     EDIT MODAL
-========================= -->
+<!-- EDIT MODAL -->
 
 <div
     id="editModal"
@@ -668,28 +1063,36 @@ tbody tr:hover td{
 
     <div class="modal">
 
-        <h3>Edit Student</h3>
+        <h3>
+            Edit Student
+        </h3>
 
         <p class="modal-subtitle">
-            Update student information
+            Update student information.
         </p>
 
 
-        <label>Student ID</label>
+        <label>
+            Student ID
+        </label>
 
         <input
             type="text"
             id="editID">
 
 
-        <label>Full Name</label>
+        <label>
+            Full Name
+        </label>
 
         <input
             type="text"
             id="editName">
 
 
-        <label>Program</label>
+        <label>
+            Program
+        </label>
 
         <input
             type="text"
@@ -722,28 +1125,30 @@ tbody tr:hover td{
 </div>
 
 
-
-<!-- =========================
-     DELETE MODAL
-========================= -->
+<!-- ARCHIVE MODAL -->
 
 <div
-    id="deleteModal"
+    id="archiveModal"
     class="modal-overlay">
 
-    <div class="modal delete-modal">
+    <div class="modal archive-modal">
 
-        <div class="warning-icon">
-            !
-        </div>
+        <div class="archive-mark"></div>
 
-        <h3>Delete Student?</h3>
+        <h3>
+            Archive Student?
+        </h3>
 
-        <p class="delete-text">
-            Are you sure you want to delete
-            <strong id="deleteStudentName"></strong>?
+        <p class="archive-text">
+
+            Are you sure you want to archive
+            <strong id="archiveStudentName"></strong>?
+
             <br>
-            The student will be moved to Deleted Students.
+
+            This record will be moved to
+            Archived Students.
+
         </p>
 
 
@@ -751,7 +1156,7 @@ tbody tr:hover td{
 
             <button
                 class="cancel-btn"
-                onclick="closeDeleteModal()">
+                onclick="closeArchiveModal()">
 
                 Cancel
 
@@ -759,10 +1164,10 @@ tbody tr:hover td{
 
 
             <button
-                class="delete-confirm"
-                onclick="confirmDelete()">
+                class="archive-confirm"
+                onclick="confirmArchive()">
 
-                Delete
+                Archive
 
             </button>
 
@@ -773,12 +1178,11 @@ tbody tr:hover td{
 </div>
 
 
-
 <script>
 
-/* =========================
+/* =========================================================
    DATA
-========================= */
+========================================================= */
 
 let students = [
 
@@ -798,29 +1202,26 @@ let students = [
 
 ];
 
-
-let deletedStudents = [];
+let archivedStudents = [];
 
 let editIndex = null;
 
-let deleteIndex = null;
+let archiveIndex = null;
 
 
-/* =========================
+/* =========================================================
    DISPLAY STUDENTS
-========================= */
+========================================================= */
 
 function displayStudents(){
 
-    let table =
+    const table =
         document.getElementById("studentTable");
-
 
     table.innerHTML = "";
 
 
     document.getElementById("studentCount").innerText =
-
         students.length +
         (students.length === 1
             ? " Student"
@@ -837,13 +1238,15 @@ function displayStudents(){
                     colspan="5"
                     class="empty">
 
-                    No student records found.
+                    No active student records found.
 
                 </td>
 
             </tr>
 
         `;
+
+        updateStats();
 
         return;
     }
@@ -856,22 +1259,34 @@ function displayStudents(){
             <tr>
 
                 <td>
-                    ${student.id}
+
+                    <span class="id-badge">
+                        ${escapeHTML(student.id)}
+                    </span>
+
                 </td>
 
 
                 <td>
-                    ${student.name}
+
+                    <span class="student-name">
+                        ${escapeHTML(student.name)}
+                    </span>
+
                 </td>
 
 
                 <td>
-                    ${student.program}
+
+                    <div class="program">
+                        ${escapeHTML(student.program)}
+                    </div>
+
                 </td>
 
 
                 <td>
-                    ${student.date}
+                    ${escapeHTML(student.date)}
                 </td>
 
 
@@ -889,10 +1304,10 @@ function displayStudents(){
 
 
                         <button
-                            class="action-btn delete-btn"
-                            onclick="openDeleteModal(${index})">
+                            class="action-btn archive-btn"
+                            onclick="openArchiveModal(${index})">
 
-                            Delete
+                            Archive
 
                         </button>
 
@@ -906,27 +1321,29 @@ function displayStudents(){
 
     });
 
+
+    updateStats();
+
 }
 
 
-/* =========================
-   DISPLAY DELETED
-========================= */
+/* =========================================================
+   DISPLAY ARCHIVED
+========================================================= */
 
-function displayDeleted(){
+function displayArchived(){
 
-    let table =
-        document.getElementById("deletedTable");
-
+    const table =
+        document.getElementById("archivedTable");
 
     table.innerHTML = "";
 
 
-    document.getElementById("deletedCount").innerText =
-        deletedStudents.length + " Deleted";
+    document.getElementById("archivedCount").innerText =
+        archivedStudents.length + " Archived";
 
 
-    if(deletedStudents.length === 0){
+    if(archivedStudents.length === 0){
 
         table.innerHTML = `
 
@@ -936,7 +1353,7 @@ function displayDeleted(){
                     colspan="5"
                     class="empty">
 
-                    No deleted student records.
+                    No archived student records.
 
                 </td>
 
@@ -944,35 +1361,49 @@ function displayDeleted(){
 
         `;
 
+        updateStats();
+
         return;
     }
 
 
-    deletedStudents.forEach(function(student,index){
+    archivedStudents.forEach(function(student,index){
 
         table.innerHTML += `
 
             <tr>
 
                 <td>
-                    ${student.id}
+
+                    <span class="id-badge">
+                        ${escapeHTML(student.id)}
+                    </span>
+
                 </td>
 
 
                 <td>
-                    ${student.name}
+
+                    <span class="student-name">
+                        ${escapeHTML(student.name)}
+                    </span>
+
                 </td>
 
 
                 <td>
-                    ${student.program}
+
+                    <div class="program">
+                        ${escapeHTML(student.program)}
+                    </div>
+
                 </td>
 
 
                 <td>
 
                     <span class="status">
-                        Deleted
+                        Archived
                     </span>
 
                 </td>
@@ -996,34 +1427,57 @@ function displayDeleted(){
 
     });
 
+
+    updateStats();
+
 }
 
 
-/* =========================
+/* =========================================================
    ADD STUDENT
-========================= */
+========================================================= */
 
 function addStudent(){
 
-    let id =
-        document.getElementById("studentID").value.trim();
+    const id =
+        document.getElementById("studentID")
+        .value.trim();
 
 
-    let name =
-        document.getElementById("studentName").value.trim();
+    const name =
+        document.getElementById("studentName")
+        .value.trim();
 
 
-    let program =
-        document.getElementById("studentProgram").value.trim();
+    const program =
+        document.getElementById("studentProgram")
+        .value.trim();
 
 
-    if(
-        id === "" ||
-        name === "" ||
-        program === ""
-    ){
+    if(!id || !name || !program){
 
-        alert("Please fill in all fields.");
+        showError(
+            "Please fill in all fields."
+        );
+
+        return;
+    }
+
+
+    const duplicate =
+        students.some(function(student){
+
+            return student.id.toLowerCase()
+                === id.toLowerCase();
+
+        });
+
+
+    if(duplicate){
+
+        showError(
+            "Student ID already exists."
+        );
 
         return;
     }
@@ -1051,21 +1505,24 @@ function addStudent(){
 
     displayStudents();
 
-    showMessage("Student added successfully.");
+    showMessage(
+        "Student added successfully."
+    );
 
 }
 
 
-/* =========================
-   EDIT MODAL
-========================= */
+/* =========================================================
+   EDIT
+========================================================= */
 
 function openEditModal(index){
 
     editIndex = index;
 
 
-    let student = students[index];
+    const student =
+        students[index];
 
 
     document.getElementById("editID").value =
@@ -1105,25 +1562,46 @@ function saveEdit(){
     }
 
 
-    let id =
-        document.getElementById("editID").value.trim();
+    const id =
+        document.getElementById("editID")
+        .value.trim();
 
 
-    let name =
-        document.getElementById("editName").value.trim();
+    const name =
+        document.getElementById("editName")
+        .value.trim();
 
 
-    let program =
-        document.getElementById("editProgram").value.trim();
+    const program =
+        document.getElementById("editProgram")
+        .value.trim();
 
 
-    if(
-        id === "" ||
-        name === "" ||
-        program === ""
-    ){
+    if(!id || !name || !program){
 
-        alert("Please fill in all fields.");
+        alert(
+            "Please fill in all fields."
+        );
+
+        return;
+    }
+
+
+    const duplicate =
+        students.some(function(student,index){
+
+            return index !== editIndex &&
+                student.id.toLowerCase()
+                === id.toLowerCase();
+
+        });
+
+
+    if(duplicate){
+
+        alert(
+            "Another student already uses this Student ID."
+        );
 
         return;
     }
@@ -1140,90 +1618,119 @@ function saveEdit(){
 
     displayStudents();
 
-    showMessage("Student updated successfully.");
+    showMessage(
+        "Student updated successfully."
+    );
 
 }
 
 
-/* =========================
-   DELETE MODAL
-========================= */
+/* =========================================================
+   ARCHIVE
+========================================================= */
 
-function openDeleteModal(index){
+function openArchiveModal(index){
 
-    deleteIndex = index;
-
-
-    let student = students[index];
+    archiveIndex = index;
 
 
-    document.getElementById("deleteStudentName")
-        .innerText = student.name;
+    const student =
+        students[index];
+
+
+    document.getElementById(
+        "archiveStudentName"
+    ).innerText = student.name;
 
 
     document
-        .getElementById("deleteModal")
+        .getElementById("archiveModal")
         .classList.add("show");
 
 }
 
 
-function closeDeleteModal(){
+function closeArchiveModal(){
 
     document
-        .getElementById("deleteModal")
+        .getElementById("archiveModal")
         .classList.remove("show");
 
-    deleteIndex = null;
+    archiveIndex = null;
 
 }
 
 
-function confirmDelete(){
+function confirmArchive(){
 
-    if(deleteIndex === null){
+    if(archiveIndex === null){
         return;
     }
 
 
-    deletedStudents.push(
-        students[deleteIndex]
+    archivedStudents.push(
+        students[archiveIndex]
     );
 
 
-    students.splice(deleteIndex,1);
+    students.splice(
+        archiveIndex,
+        1
+    );
 
 
-    closeDeleteModal();
+    closeArchiveModal();
 
 
     displayStudents();
 
-    displayDeleted();
+    displayArchived();
 
 
-    showMessage("Student deleted successfully.");
+    showMessage(
+        "Student archived successfully."
+    );
 
 }
 
 
-/* =========================
+/* =========================================================
    RESTORE
-========================= */
+========================================================= */
 
 function restoreStudent(index){
 
-    students.push(
-        deletedStudents[index]
-    );
+    const student =
+        archivedStudents[index];
 
 
-    deletedStudents.splice(index,1);
+    const duplicate =
+        students.some(function(activeStudent){
+
+            return activeStudent.id.toLowerCase()
+                === student.id.toLowerCase();
+
+        });
+
+
+    if(duplicate){
+
+        alert(
+            "Cannot restore this student because the Student ID already exists."
+        );
+
+        return;
+    }
+
+
+    students.push(student);
+
+    archivedStudents.splice(index,1);
 
 
     displayStudents();
 
-    displayDeleted();
+    displayArchived();
 
 
     showMessage(
@@ -1239,9 +1746,9 @@ function restoreStudent(index){
 }
 
 
-/* =========================
+/* =========================================================
    TABS
-========================= */
+========================================================= */
 
 function showTab(tab,button){
 
@@ -1271,22 +1778,28 @@ function showTab(tab,button){
     button.classList.add("active");
 
 
-    displayDeleted();
+    displayArchived();
 
 }
 
 
-/* =========================
+/* =========================================================
    MESSAGE
-========================= */
+========================================================= */
 
 function showMessage(text){
 
-    let message =
+    const message =
         document.getElementById("message");
 
 
     message.innerText = text;
+
+    message.style.background = "#edf5ee";
+
+    message.style.borderColor = "#d7e5d9";
+
+    message.style.color = "#627b67";
 
     message.style.display = "block";
 
@@ -1300,16 +1813,39 @@ function showMessage(text){
 }
 
 
-/* =========================
+function showError(text){
+
+    const message =
+        document.getElementById("message");
+
+
+    message.innerText = text;
+
+    message.style.background = "#f7ece9";
+
+    message.style.borderColor = "#ead5d0";
+
+    message.style.color = "#95685e";
+
+    message.style.display = "block";
+
+
+    setTimeout(function(){
+
+        message.style.display = "none";
+
+    },3000);
+
+}
+
+
+/* =========================================================
    DATE
-========================= */
+========================================================= */
 
 function getDate(){
 
-    let date = new Date();
-
-
-    return date.toLocaleDateString(
+    return new Date().toLocaleDateString(
         "en-US",
         {
             month:"short",
@@ -1321,57 +1857,115 @@ function getDate(){
 }
 
 
-/* =========================
-   CLOSE MODAL WHEN CLICKING
-   OUTSIDE
-========================= */
+/* =========================================================
+   STATISTICS
+========================================================= */
+
+function updateStats(){
+
+    const active =
+        students.length;
+
+
+    const archived =
+        archivedStudents.length;
+
+
+    document.getElementById(
+        "activeStat"
+    ).innerText = active;
+
+
+    document.getElementById(
+        "archivedStat"
+    ).innerText = archived;
+
+
+    document.getElementById(
+        "totalStat"
+    ).innerText =
+        active + archived;
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(value){
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   MODAL CLICK OUTSIDE
+========================================================= */
 
 document
     .getElementById("editModal")
-    .addEventListener("click",function(e){
+    .addEventListener(
+        "click",
+        function(e){
 
-        if(e.target === this){
-            closeEditModal();
+            if(e.target === this){
+                closeEditModal();
+            }
+
         }
-
-    });
+    );
 
 
 document
-    .getElementById("deleteModal")
-    .addEventListener("click",function(e){
+    .getElementById("archiveModal")
+    .addEventListener(
+        "click",
+        function(e){
 
-        if(e.target === this){
-            closeDeleteModal();
+            if(e.target === this){
+                closeArchiveModal();
+            }
+
+        }
+    );
+
+
+/* =========================================================
+   ESC KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(e){
+
+        if(e.key === "Escape"){
+
+            closeEditModal();
+
+            closeArchiveModal();
+
         }
 
-    });
-
-
-/* =========================
-   ESC KEY
-========================= */
-
-document.addEventListener("keydown",function(e){
-
-    if(e.key === "Escape"){
-
-        closeEditModal();
-
-        closeDeleteModal();
-
     }
+);
 
-});
 
-
-/* =========================
+/* =========================================================
    START
-========================= */
+========================================================= */
 
 displayStudents();
 
-displayDeleted();
+displayArchived();
+
+updateStats();
 
 </script>
 
